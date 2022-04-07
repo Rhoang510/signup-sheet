@@ -17,5 +17,5 @@ function checkPassword() {
     }
 }
 
-password1.addEventListener("keydown", checkPassword());
-password2.addEventListener("keydown", checkPassword())
+// password1.addEventListener("keydown", checkPassword());
+// password2.addEventListener("keydown", checkPassword())
