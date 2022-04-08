@@ -1,7 +1,7 @@
 const password1 = document.querySelector("#password");
 const password2 = document.querySelector("#confirm-password");
-const pwMsg = document.querySelector(".password");
-const pwMsg2 = document.querySelector(".confirm-password");
+const pwMsg = document.querySelector(".passwordError");
+const pwMsg2 = document.querySelector(".confirmPasswordError");
 
 function checkPassword() {
     if(password1.value == "") {

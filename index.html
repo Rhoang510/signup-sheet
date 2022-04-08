@@ -16,8 +16,9 @@
             <p>Travel</p>
         </div>
         <div class="credit">
-            <p>Photo by <a href="https://unsplash.com/photos/wReRjmz7EQw">Luis Fallas</a></p>
-            <p>Logo by <a href="https://pngwing.com">Pngwing</a></p>
+            Photo by <a href="https://unsplash.com/photos/wReRjmz7EQw">Luis Fallas</a>
+            <br>
+            Logo by <a href="https://pngwing.com">Pngwing</a>
         </div>
     </div>
     <div class="container">
@@ -33,33 +34,37 @@
                     <div class="wrapper">
                         <div>
                             <label for="first-name">First Name</label>
-                            <input type="text" name="first-name" id="first-name">
+                            <input type="text" name="first-name" id="first-name" required>
+                            <span></span>
                         </div>
                         <div>
                             <label for="last-name">Last Name</label>
-                            <input type="text" name="last-name" id="last-name">
+                            <input type="text" name="last-name" id="last-name" required>
+                            <span></span>
                         </div>
                     </div>
                     <div class="wrapper">
                         <div>
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" required>
+                            <span class="emailError"></span>
                         </div>
                         <div>
                             <label for="phone">Phone number</label>
                             <input type="tel" name="phone" id="phone">
+                            <span class="phoneError"></span>
                         </div>
                     </div>
                     <div class="wrapper">
                         <div>
                             <label for="password">Password</label>
                             <input type="password" name="password" id="password" maxlength="25">
-                            <span class="password"></span>
+                            <span class="passwordError"></span>
                         </div>
                         <div>
                             <label for="confirm-password">Confirm password</label>
                             <input type="password" name="confirm-password" id="confirm-password" maxlength="25">
-                            <span class="confirm-password"></span>
+                            <span class="confirmPasswordError"></span>
                         </div>
                     </div>
                 </form>
