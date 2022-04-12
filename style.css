@@ -24,7 +24,7 @@ a {
     justify-content: space-between;
     background-image: url(img/gumwall.jpg);
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-position: center center;
 }
 
@@ -101,7 +101,13 @@ fieldset {
 .wrapper {
     display: flex;
     flex-wrap: wrap;
+    padding: 10px;
     gap: 3rem;
+}
+
+.wrapper > div {
+    justify-content: center;
+    align-items: center;
 }
 
 .bottomInfo {
@@ -141,14 +147,14 @@ input:focus {
 
 span {
     font-size: 12px;
-    color: red;
+    color: rgb(241, 46, 46);
 }
 
 label {
     text-transform: uppercase;
     font-size: .75rem;
     font-weight: 600;
-    letter-spacing: .2rem;
+    letter-spacing: .15rem;
 }
 
 span {
@@ -166,7 +172,24 @@ a:link {
 a:visited {
     color: rgb(132, 132, 212);
 }
+
+.validFirstName,
+.validLastName,
+.validEmail,
+.validPhone,
+.validPassword,
+.validConfirm {
+    position: relative;
+    color: rgb(12, 248, 12);
+    font-size: 1.2em;
+    margin: 5px;
+}
+
 @media only screen and (max-width: 775px) {
+
+    * {
+        border: 1px solid red;
+    }
     
     body {
         grid-template-columns: 1fr;
@@ -213,13 +236,14 @@ a:visited {
     }
 
     .topInfo {
+        margin-top: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .topInfo > p {
-        /* font-size: 1.2rem; */
+        margin-top: 0;
         max-width: 40ch;
     }
 

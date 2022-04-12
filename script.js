@@ -1,21 +1,47 @@
+const firstName = document.querySelector("#first-name");
+const lastName = document.querySelector("#last-name");
+const phone = document.querySelector("#phone");
 const password1 = document.querySelector("#password");
 const password2 = document.querySelector("#confirm-password");
 const pwMsg = document.querySelector(".passwordError");
 const pwMsg2 = document.querySelector(".confirmPasswordError");
+const email = document.querySelector("#email");
+const emailMsg = document.querySelector(".emailError");
+const validFirstName = document.querySelector(".validFirstName");
+const validLastName = document.querySelector(".validLastName");
+const validEmail = document.querySelector(".validEmail");
+const validPhone = document.querySelector(".validPhone");
+const validPassword = document.querySelector(".validPassword");
+const validConfirmPassword = document.querySelector(".validConfirmPassword");
 
-function checkPassword() {
-    if(password1.value == "") {
-        pwMsg.textContent = "* Please enter password";
-    } else if(password2 == "") {
-        pwMsg2.textContent = "Please confirm password";
-    } else if(password1 != password2) {
-        pwMsg2.textContent = "\nPassword did not match. Please try again."
-        return false;
-    } else {
-        pwMsg2.textContent = "Confirmed";
-        return true;
+// validFirstName.addEventListener("keyup", () => {
+//     if()
+// })
+
+firstName.addEventListener("keyup", () => {
+    if(firstName.value !== "") {
+        if(firstName.checkValidity() === false) {
+            validFirstName.textContent = "";
+        } else {
+            validFirstName.textContent = "✓";
+        }
     }
-}
+});
 
-// password1.addEventListener("keydown", checkPassword());
-// password2.addEventListener("keydown", checkPassword())
+email.addEventListener("keyup", () => {
+    if(email.value !== "") {
+        if(email.checkValidity() === false) {
+            emailMsg.textContent = "* Please enter a valid email";
+            validEmail.textContent = "";
+        } else {
+            emailMsg.textContent = "";
+            validEmail.textContent = "✓";
+        }
+    }
+});
+
+password1.addEventListener("keyup", () => {
+    if(password1.value ==  "") {
+        pwMsg.textContent = "*Please enter in password"
+    }
+});
