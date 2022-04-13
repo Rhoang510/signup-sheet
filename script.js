@@ -18,18 +18,28 @@ const validConfirmPassword = document.querySelector(".validConfirmPassword");
 //     if()
 // })
 
-firstName.addEventListener("keyup", () => {
-    if(firstName.value !== "") {
-        if(firstName.checkValidity() === false) {
-            validFirstName.textContent = "";
-        } else {
+firstName.addEventListener("input", () => {
+    if(firstName.value.trim() !== "") {
+        if(firstName.checkValidity() === true) {
             validFirstName.textContent = "✓";
+        } else {
+            validFirstName.textContent = "";
         }
     }
 });
 
-email.addEventListener("keyup", () => {
-    if(email.value !== "") {
+lastName.addEventListener("input", () => {
+    if(lastName.value.trim() !== "") {
+        if(lastName.checkValidity() === true) {
+            validLastName.textContent = "✓";
+        } else {
+            validLastName.textContent = "";
+        }
+    }
+});
+
+email.addEventListener("input", () => {
+    if(email.value.trim() !== "") {
         if(email.checkValidity() === false) {
             emailMsg.textContent = "* Please enter a valid email";
             validEmail.textContent = "";
@@ -37,11 +47,29 @@ email.addEventListener("keyup", () => {
             emailMsg.textContent = "";
             validEmail.textContent = "✓";
         }
+    } else {
+        validEmail.textContent = "";
     }
 });
 
-password1.addEventListener("keyup", () => {
-    if(password1.value ==  "") {
-        pwMsg.textContent = "*Please enter in password"
+password1.addEventListener("input", () => {
+    if(password1.value !==  "") {
+        if(password1.checkValidity() === true) {
+            pwMsg.textContent = "";
+            validPassword.textContent = "✓";
+        } else {
+        pwMsg.textContent = "*Password must be 6 characters long, contains 1 uppercase and lowercase letter, and include 1 number";
+        validPassword.textContent = "";
+        }
+    } 
+});
+
+password2.addEventListener("input", () => {
+    if(password1.value !== password2.value) {
+        pwMsg2.textContent = "Password doesn't match";
+        validConfirmPassword.textContent = "";
+    } else {
+        pwMsg2.textContent = "";
+        validConfirmPassword.textContent = "✓";
     }
 });
