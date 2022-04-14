@@ -14,10 +14,6 @@ const validPhone = document.querySelector(".validPhone");
 const validPassword = document.querySelector(".validPassword");
 const validConfirmPassword = document.querySelector(".validConfirmPassword");
 
-// validFirstName.addEventListener("keyup", () => {
-//     if()
-// })
-
 firstName.addEventListener("input", () => {
     if(firstName.value.trim() !== "") {
         if(firstName.checkValidity() === true) {
@@ -25,6 +21,8 @@ firstName.addEventListener("input", () => {
         } else {
             validFirstName.textContent = "";
         }
+    } else {
+        validFirstName.textContent = ""
     }
 });
 
@@ -35,6 +33,8 @@ lastName.addEventListener("input", () => {
         } else {
             validLastName.textContent = "";
         }
+    }   else {
+        validLastName.textContent = ""
     }
 });
 
@@ -61,15 +61,22 @@ password1.addEventListener("input", () => {
         pwMsg.textContent = "*Password must be 6 characters long, contains 1 uppercase and lowercase letter, and include 1 number";
         validPassword.textContent = "";
         }
-    } 
+    } else {
+        pwMsg.textContent = "";
+    }
 });
 
 password2.addEventListener("input", () => {
-    if(password1.value !== password2.value) {
-        pwMsg2.textContent = "Password doesn't match";
-        validConfirmPassword.textContent = "";
+    if(password2.value !== "") {
+        if(password1.value !== password2.value) {
+            pwMsg2.textContent = "*Password doesn't match";
+            validConfirmPassword.textContent = "";
+        } else {
+            pwMsg2.textContent = "";
+            validConfirmPassword.textContent = "✓";
+        }
     } else {
         pwMsg2.textContent = "";
-        validConfirmPassword.textContent = "✓";
+        validConfirmPassword.textContent = "";
     }
 });
