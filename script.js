@@ -1,6 +1,7 @@
 const firstName = document.querySelector("#first-name");
 const lastName = document.querySelector("#last-name");
 const phone = document.querySelector("#phone");
+const phoneError = document.querySelector(".phoneError");
 const password1 = document.querySelector("#password");
 const password2 = document.querySelector("#confirm-password");
 const pwMsg = document.querySelector(".passwordError");
@@ -49,6 +50,20 @@ email.addEventListener("input", () => {
         }
     } else {
         validEmail.textContent = "";
+    }
+});
+
+phone.addEventListener("input", () => {
+    if(phone.value.trim() !== "") {
+        if(phone.checkValidity() === false) {
+            validPhone.textContent = "";
+            phoneError.textContent = "*Please enter 10 numbers";
+        } else {
+            validPhone.textContent = "✓";
+            phoneError.textContent = "";
+        }
+    } else {
+        validPhone.textContent = "";
     }
 });
 

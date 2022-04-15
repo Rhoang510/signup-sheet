@@ -19,6 +19,8 @@
             Photo by <a href="https://unsplash.com/photos/wReRjmz7EQw">Luis Fallas</a>
             <br>
             Logo by <a href="https://pngwing.com">Pngwing</a>
+            <br>
+            Font by <a href="https://www.dafont.com/calinastiya.font">Patria Ari</a>
         </div>
     </div>
     <div class="container">
@@ -30,7 +32,7 @@
         <div class="inputs">
             <fieldset>
                 <h2>Let's sign up!</h2>
-                <form action="#" class="form" method="get">
+                <form action="#" class="my-form" method="get">
                     <div class="wrapper">
                         <div>
                             <label for="first-name">
@@ -55,7 +57,7 @@
                                 Email
                                 <span class="validEmail"></span>
                             </label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" requird>
                             <span class="emailError"></span>
                         </div>
                         <div>
@@ -63,7 +65,7 @@
                                 Phone number
                                 <span class="validPhone"></span>
                             </label>
-                            <input type="tel" name="phone" id="phone" maxlength="10" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                            <input type="tel" name="phone" id="phone" maxlength="10" pattern="[0-9]{10}">
                             <span class="phoneError"></span>
                         </div>
                     </div>
@@ -79,8 +81,7 @@
                         <div>
                             <label for="confirm-password">
                                 Confirm password
-                                <span class="validConfirmPassword"></span>
-                            </label>
+                                <span class="validConfirmPassword"></span></label>
                             <input type="password" name="confirm-password" id="confirm-password" maxlength="25" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
                             <span class="confirmPasswordError"></span>
                         </div>
@@ -89,7 +90,7 @@
             </fieldset>
         </div>
         <div class="bottomInfo">
-            <button form="form" type="submit">Create Account</button>
+            <button form="my-form" type="submit">Create Account</button>
             <p>Already have an account? <a href="">Log in</a></p>
         </div>
     </div>
