@@ -14,16 +14,19 @@ const validEmail = document.querySelector(".validEmail");
 const validPhone = document.querySelector(".validPhone");
 const validPassword = document.querySelector(".validPassword");
 const validConfirmPassword = document.querySelector(".validConfirmPassword");
+const submitButton = document.querySelector(".submitButton");
+const form = document.querySelector("form");
+const required = document.querySelector(".required");
 
 firstName.addEventListener("input", () => {
     if(firstName.value.trim() !== "") {
         if(firstName.checkValidity() === true) {
             validFirstName.textContent = "✓";
-        } else {
-            validFirstName.textContent = "";
+            validFirstName.style.color = "rgb(12, 248, 12)";
         }
     } else {
-        validFirstName.textContent = ""
+        validFirstName.textContent = "*"
+        validFirstName.style.color = "red";
     }
 });
 
@@ -31,11 +34,11 @@ lastName.addEventListener("input", () => {
     if(lastName.value.trim() !== "") {
         if(lastName.checkValidity() === true) {
             validLastName.textContent = "✓";
-        } else {
-            validLastName.textContent = "";
+            validLastName.style.color = "rgb(12, 248, 12)";
         }
-    }   else {
-        validLastName.textContent = ""
+    } else {
+        validLastName.textContent = "*"
+        validLastName.style.color = "red";
     }
 });
 
@@ -43,13 +46,15 @@ email.addEventListener("input", () => {
     if(email.value.trim() !== "") {
         if(email.checkValidity() === false) {
             emailMsg.textContent = "* Please enter a valid email";
-            validEmail.textContent = "";
+            required.textContent = "*";
         } else {
             emailMsg.textContent = "";
             validEmail.textContent = "✓";
+            validEmail.style.color = "rgb(12, 248, 12)";
         }
     } else {
-        validEmail.textContent = "";
+        validEmail.textContent = "*";
+        validEmail.style.color = "red";
     }
 });
 
@@ -72,12 +77,15 @@ password1.addEventListener("input", () => {
         if(password1.checkValidity() === true) {
             pwMsg.textContent = "";
             validPassword.textContent = "✓";
+            validPassword.style.color = "rgb(12, 248, 12)";
         } else {
         pwMsg.textContent = "*Password must be 6 characters long, contains 1 uppercase and lowercase letter, and include 1 number";
-        validPassword.textContent = "";
-        }
-    } else {
-        pwMsg.textContent = "";
+        validPassword.textContent = "*";
+        validPassword.style.color = "red";
+    }
+} else {
+    pwMsg.textContent = "";
+    validPassword.style.color = "red";
     }
 });
 
@@ -85,13 +93,30 @@ password2.addEventListener("input", () => {
     if(password2.value !== "") {
         if(password1.value !== password2.value) {
             pwMsg2.textContent = "*Password doesn't match";
-            validConfirmPassword.textContent = "";
+            validConfirmPassword.textContent = "*";
+            validConfirmPassword.style.color = "red";
         } else {
             pwMsg2.textContent = "";
             validConfirmPassword.textContent = "✓";
+            validConfirmPassword.style.color = "rgb(12, 248, 12)";
         }
     } else {
         pwMsg2.textContent = "";
-        validConfirmPassword.textContent = "";
+        validConfirmPassword.textContent = "*";
+        validConfirmPassword.style.color = "red";
     }
 });
+
+submitButton.addEventListener("click", () => {
+    if(firstName.checkValidity() === true 
+    && lastName.checkValidity() === true 
+    && email.value.trim() !== "" 
+    && email.checkValidity() === true 
+    && password1.value.trim() !== "" 
+    && password1.value === password2.value) {
+        form.submit();
+        alert("Congratuations! You're account has been created!");
+    } else {
+        alert("Please fill in the required information.");
+    }
+})

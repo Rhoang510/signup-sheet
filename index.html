@@ -37,7 +37,7 @@
                         <div>
                             <label for="first-name">
                                 First Name
-                                <span class="validFirstName"></span>
+                                <span class="validFirstName">*</span>
                             </label>
                             <input type="text" name="first-name" id="first-name" required maxlength="40">
                             <span></span>
@@ -45,7 +45,7 @@
                         <div>
                             <label for="last-name">
                                 Last Name
-                                <span class="validLastName"></span>
+                                <span class="validLastName">*</span>
                             </label>
                             <input type="text" name="last-name" id="last-name" required maxlength="40">
                             <span></span>
@@ -55,7 +55,7 @@
                         <div>
                             <label for="email">
                                 Email
-                                <span class="validEmail"></span>
+                                <span class="validEmail">*</span>
                             </label>
                             <input type="email" name="email" id="email" requird>
                             <span class="emailError"></span>
@@ -73,7 +73,7 @@
                         <div>
                             <label for="password">
                                 Password
-                                <span class="validPassword"></span>
+                                <span class="validPassword">*</span>
                             </label>
                             <input type="password" name="password" id="password" maxlength="25" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
                             <span class="passwordError"></span>
@@ -81,7 +81,7 @@
                         <div>
                             <label for="confirm-password">
                                 Confirm password
-                                <span class="validConfirmPassword"></span></label>
+                                <span class="validConfirmPassword">*</span></label>
                             <input type="password" name="confirm-password" id="confirm-password" maxlength="25" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
                             <span class="confirmPasswordError"></span>
                         </div>
@@ -90,7 +90,7 @@
             </fieldset>
         </div>
         <div class="bottomInfo">
-            <button form="my-form" type="submit">Create Account</button>
+            <button class="submitButton" type="submit">Create Account</button>
             <p>Already have an account? <a href="">Log in</a></p>
         </div>
     </div>
