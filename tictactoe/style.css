@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    min-height: 100%;
+    background-color: #333;
+    color: white;
+}
+
+.container .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    /* border: 1px solid red; */
+}
+
+.header h1 {
+    text-align: center;
+    font-size: clamp(4rem, 8vw, 7rem);
+}
+
+.message {
+    font-size: clamp(1.5rem, 4vw, 3.25rem);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.square-container {
+    padding-top: 50px;
+    /* border: 1px solid red; */
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    border: 3px solid rgb(40, 134, 223)
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(44, 44, 44);
+    border: 1px solid rgb(40, 134, 223);
+    border-right: none;
+    border-top: none;
+    height: 100px;
+    width: 100px;
+    font-size: clamp(3rem, 10vw, 6rem);
+    cursor: pointer;
+}
+
+
+.square:hover {
+    background-color: #333;
+}
+
+.no-l {
+    border-left: none;
+}
+
+.no-b {
+    border-bottom: none;
+}
+
+.modal {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    /* visibility: hidden; */
+    transform: scale(1.1);
+}
+
+.gameover {
+    background-color: rgb(16, 80, 122);
+    width: 400px;
+    height: 200px;
+    border-radius: 30px;
+    border: 1px solid black;
+}
+
+.reset-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    margin-top: 30px;
+    height: 50px;
+    width: 140px;
+    font-size: 2rem;
+    border-radius: 20px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.display {
+    font-size: 2.2rem;
+}
+
+.reset-btn:hover {
+    opacity: 80%;
+}
+
+@media (min-width: 600px) {
+    .square {
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media (min-width: 900px) {
+    .square {
+        height: 180px;
+        width: 180px;
+    }
+}
