@@ -136,6 +136,7 @@ const displayController = (() => {
         }
     }
     
+    
     return {
         renderBoard,
         whosTurn,
