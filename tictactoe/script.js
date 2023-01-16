@@ -1,3 +1,6 @@
+const player1Name = document.querySelector('.player1').value
+const player2Name = document.querySelector('.player2').value
+
 const Gameboard = (() => {
     let board = new Array(9).fill('')
     const getBoard = () => board
@@ -43,7 +46,7 @@ const gameFlow = (player1Name, player2Name) => {
             displayController.openModal()
             displayController.displayWinner(currentPlayer)
             gameover = true
-        } if (draw) {
+        } if (winner != null && draw) {
             displayController.openModal()
             displayController.displayDraw()
             gameover = true
@@ -88,13 +91,12 @@ const gameFlow = (player1Name, player2Name) => {
         })
     })()
 
- 
     return {
         switchPlayers,
         currentPlayer,
         gameboard,
         choosingSquare,
-        checkForWin,
+        checkForWin
     }
 }
 
@@ -130,12 +132,14 @@ const displayController = (() => {
         modal.style.display = 'none'
     }
 
-    const windowCloseModal = (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none'
-        }
-    }
-    
+    // const windowCloseModal = (e) => {
+    //     if (e.target === modal) {
+    //         gameFlow.resetGame()
+    //         modal.style.display = 'none'
+    //     }
+    // }
+
+    // window.addEventListener('click', windowCloseModal)
     
     return {
         renderBoard,
@@ -143,9 +147,8 @@ const displayController = (() => {
         displayWinner,
         displayDraw,
         openModal,
-        closeModal,
-        windowCloseModal
+        closeModal
     }
 })()
 
-gameFlow('Jack', 'Bill')
+gameFlow(player1Name, player2Name)
