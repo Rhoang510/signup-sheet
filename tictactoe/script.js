@@ -1,5 +1,5 @@
-const player1Name = document.querySelector('.player1').value
-const player2Name = document.querySelector('.player2').value
+const player1Name = document.querySelector('.player1')
+const player2Name = document.querySelector('.player2')
 
 const Gameboard = (() => {
     let board = new Array(9).fill('')
@@ -46,10 +46,12 @@ const gameFlow = (player1Name, player2Name) => {
             displayController.openModal()
             displayController.displayWinner(currentPlayer)
             gameover = true
+            resetGameModal()
         } if (winner != null && draw) {
             displayController.openModal()
             displayController.displayDraw()
             gameover = true
+            resetGameModal()
         }
     }
 
@@ -71,25 +73,38 @@ const gameFlow = (player1Name, player2Name) => {
                 gameboard.setValue(index, currentPlayer.getMarker())
                 displayController.renderBoard()
                 checkForWin(currentPlayer)
-            } if (gameover === false) {
                 switchPlayers()
+            } if (square.textContent != '' && gameover === false) {
                 displayController.whosTurn(currentPlayer)
             }
         })
     })
+    
+    const resetGame = () => {
+        gameboard.resetBoard()
+        displayController.closeModal()
+        currentPlayer = player1
+        gameover = false
+        displayController.whosTurn(currentPlayer)
+        square.forEach(square => {
+            square.textContent = ''
+        })
+    }
 
-    const resetGame = (() => {
+    const resetGameBtn = (() => {
         resetBtn.addEventListener('click', (e) => {
-            gameboard.resetBoard()
-            displayController.closeModal()
-            currentPlayer = player1
-            gameover = false
-            displayController.whosTurn(currentPlayer)
-            square.forEach(square => {
-                square.textContent = ''
-            })
+            resetGame()
         })
     })()
+
+    const resetGameModal = () => {
+        const modal = document.querySelector('.modal')
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                resetGame()
+            }
+        })
+    }
 
     return {
         switchPlayers,
@@ -125,22 +140,15 @@ const displayController = (() => {
     }
 
     const openModal = () => {
-        modal.style.display = 'flex'
+        modal.style.opacity = '1'
+        modal.style.visibility = 'visible'
     }
 
     const closeModal = () => {
-        modal.style.display = 'none'
+        modal.style.opacity = '0'
+        modal.style.visibility = 'hidden'
     }
 
-    // const windowCloseModal = (e) => {
-    //     if (e.target === modal) {
-    //         gameFlow.resetGame()
-    //         modal.style.display = 'none'
-    //     }
-    // }
-
-    // window.addEventListener('click', windowCloseModal)
-    
     return {
         renderBoard,
         whosTurn,
@@ -151,4 +159,4 @@ const displayController = (() => {
     }
 })()
 
-gameFlow(player1Name, player2Name)
+gameFlow('Player 1', 'Player 2')
